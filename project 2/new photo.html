@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background: url('https://images.pexels.com/photos/3764640/pexels-photo-3764640.jpeg') no-repeat center center/cover;
+        }
+
+        header nav {
+            position: absolute;
+            top: 20px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav ul li {
+            cursor: pointer;
+        }
+
+        .search-bar {
+            margin-top: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            width: 300px;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            color: white;
+        }
+
+        .explore {
+            margin-top: 20px;
+        }
+
+        .explore a {
+            color: white;
+            text-decoration: none;
+            background: #ff9800;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .explore a:hover {
+            background: #e08800;
+        }
+
+        .navigation {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .portfolio {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            margin-bottom: 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay .icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .image-overlay .icons a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">PhotoPortfolio</div>
+            <ul>
+                <li>Explore</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+        <h1>Free Stock Photos</h1>
+        <div class="search-bar">
+            <input type="search" id="search" placeholder="Search for photos" autocomplete="off">
+            <button type="submit">🔍</button>
+        </div>
+        <div class="explore">
+            <a href="#portfolio">Explore</a>
+        </div>
+    </header>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764640/pexels-photo-3764640.jpeg" alt="Portfolio Image 1">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764641/pexels-photo-3764641.jpeg" alt="Portfolio Image 2">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764642/pexels-photo-3764642.jpeg" alt="Portfolio Image 3">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764643/pexels-photo-3764643.jpeg" alt="Portfolio Image 4">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764644/pexels-photo-3764644.jpeg" alt="Portfolio Image 5">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/3764645/pexels-photo-3764645.jpeg" alt="Portfolio Image 6">
+                <div class="image-overlay">
+                    <div class="icons">
+                        <a href="#" title="Save to Collection"><i class="fas fa-heart"></i></a>
+                        <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                        <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Photography Portfolio. All rights reserved.</p>
+        <p><a href="#portfolio">Back to Top</a></p>
+    </footer>
+
+</body>
+
+</html>

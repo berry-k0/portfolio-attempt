@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Blog</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Josefin Sans", sans-serif;
+            background-color: #121212;  
+            color: #f9f9f9; 
+            box-sizing: border-box;
+        }
+        body::-webkit-scrollbar {
+            width: 10px; 
+        }
+        body::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #f9004d; 
+            border-radius: 20px; 
+            border: 2px solid #ffffff; 
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        span {
+            color: #f9004d;
+        }
+
+        nav ul {
+            display: flex;
+            margin: auto;
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 10px 25px;
+            margin:0px 0px 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        nav ul li a:hover {
+            color: #f9004d;
+            transition: 0.4s;
+        }
+        nav ul li a.active {
+            color: #f9004d;
+            
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 15%;
+            margin-top: 80px;
+        }
+
+        .blog-post {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-post h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            flex-basis: 100%;
+        }
+
+        .blog-post p, .blog-post em {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        .blog-post .post-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        .blog-post img {
+            max-width: 48%;
+            height: auto;
+            object-fit: cover;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .post-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .post-list li {
+            color: #ddd;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #121212;
+            color: #fcfcfc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9004d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+        }
+
+        .back-to-top:hover {
+            background-color: #ff3f75;
+        }
+
+        .back-to-top:focus {
+            display: block;
+        }
+        .show-back-to-top {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">BETTY<span>.K</span></div>
+        <ul>
+            <li><a href="home2.html">Home</a></li>
+            <li><a href="about2.html">About</a></li>
+            <li><a href="Portofolio2.html">Portfolio</a></li>
+            <li><a href="blog2.html"class="active">Blog</a></li>
+            <li><a href="resume2.html">Resume</a></li>
+            <li><a href="contacts2.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="blog-posts">
+    <div class="blog-post">
+        <h2>The Art of Taekwondo</h2>
+        <p><em>Posted on: September 14, 2022</em></p>
+        <div class="post-content">
+            <ul class="post-list">
+            <li><b>Taekwondo</b> has taught me discipline, focus, and resilience. Each belt represents dedication and hard work.</li><li> It has strengthened my body and sharpened my mind, helping me face challenges with confidence.</li>
+        </ul>
+            <img src="./image/tk1.jpg" alt="Taekwondo Art">
+        </div>
+    </div>
+
+    <div class="blog-post">
+        <h2>Fitness Tips from a Personal Trainer</h2>
+        <p><em>Posted on: December 20, 2023</em></p>
+        <div class="post-content">
+            <ul class="post-list">
+                <li>Set realistic goals.</li>
+                <li>Balance cardio, strength, and flexibility exercises.</li>
+                <li>Stay consistent with your routine.</li>
+                <li>Eat healthy and listen to your body.</li>
+            </ul>
+            <img src="./image/pe.jfif" alt="Personal Trainer">
+        </div>
+    </div>
+    
+    <div class="blog-post">
+        <h2>Creating Engaging Content</h2>
+        <p><em>Posted on: January 21, 2021</em></p>
+        <div class="post-content">
+            <ul class="post-list">
+                <li>Understand your audience's interests.</li>
+                <li>Use catchy headlines and visuals.</li>
+                <li>Share unique perspectives.</li>
+            </ul>
+            <img src="./image/content.png" alt="Engaging Content">
+        </div>
+    </div>
+    
+    <div class="blog-post">
+        <h2>The Art of Graphic Design</h2>
+        <p><em>Posted on: December 12, 2022</em></p>
+        <div class="post-content">
+            <ul class="post-list">
+                <li>Graphic design blends aesthetics with communication. </li>
+         <li>Staying updated with trends ensures impactful designs that effectively convey messages.</li>
+     </ul>
+            <img src="./image/gra.jpeg" alt="Graphic Design">
+       
+    </div>
+</div>
+
+<a href="#" class="back-to-top">&#8593;</a>
+
+<footer>
+    <p>Copyright &copy; 2024, IT. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

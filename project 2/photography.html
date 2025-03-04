@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM6aD0D0Y5T7Z2k7zQ0p+0YF0m3qI+lGdGqE7t" crossorigin="anonymous">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #90caf9;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 1em;
+        }
+
+        .search-bar button {
+            background: #90caf9;
+            border: 2px solid #90caf9;
+            border-left: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: #64b5f6;
+        }
+
+        /* Navigation Links */
+        .navigation {
+            margin-bottom: 20px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            color: #333;
+            background: #e3f2fd;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background: #90caf9;
+            color: #fff;
+        }
+
+        .image-container {
+            margin: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        img {
+            height: 370px;
+            width: 240px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.6s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .description-overlay {
+            position: absolute;
+            top: 0; /* Position at the top */
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            padding: 10px;
+            border-radius: 20px 20px 0 0; /* Rounded corners at the top */
+            text-align: center;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Fade-in effect */
+        }
+
+        .image-container:hover .description-overlay {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .button-container button {
+            margin: 0 5px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background: #0056b3;
+        }
+
+        .modal-description {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .modal-description .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #333;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            padding: 10px;
+            margin: 0 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background: #0056b3;
+        }
+
+        .page-number {
+            margin: 0 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Explore</h1>
+        <p>Discover amazing visuals and enjoy smooth interactions.</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search here..." />
+        <button onclick="searchPhotos()">🔍</button>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="navigation">
+        <a href="#" onclick="filterCategory('natural')">Natural</a>
+        <a href="#" onclick="filterCategory('portrait')">Portrait</a>
+        <a href="#" onclick="filterCategory('abstract')">Abstract</a>
+        <a href="#" onclick="filterCategory('urban')">Urban</a>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="container" id="search-result"></div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button id="prevButton" onclick="changePage(-1)">Previous</button>
+        <span class="page-number" id="pageNumber">Page 1</span>
+        <button id="nextButton" onclick="changePage(1)">Next</button>
+    </div>
+
+    <!-- Modal for Description -->
+    <div id="descriptionModal" class="modal-description">
+        <span class="close" onclick="closeDescription()">&times;</span>
+        <p id="modalDescription">Description goes here</p>
+    </div>
+
+    <script>
+        const accessKey = "DMSqkn0N27XG-7ML8X02wB2Qu208Q5sHZEnnt0eTQPo"; // Replace with your Unsplash API Key
+        const searchResult = document.getElementById("search-result");
+        const pageNumber = document.getElementById("pageNumber");
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentQuery = "nature"; // Default query
+
+        async function fetchImages(query, page) {
+            const url = `https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=${accessKey}&per_page=10`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Clear previous images
+            searchResult.innerHTML = "";
+
+            if (data.results.length > 0) {
+                totalPages = Math.ceil(data.total / 10); // Calculate total pages
+                data.results.forEach(image => {
+                    const container = document.createElement("div");
+                    container.classList.add("image-container");
+
+                    const img = document.createElement("img");
+                    img.src = image.urls.small;
+                    img.alt = image.alt_description || "No Description";
+
+                    const descriptionOverlay = document.createElement("div");
+                    descriptionOverlay.classList.add("description-overlay");
+                    descriptionOverlay.textContent = `Photo by ${image.user.name}`;
+
+                    const buttonContainer = document.createElement("div");
+                    buttonContainer.classList.add("button-container");
+
+                    const viewButton = document.createElement("button");
+                    viewButton.textContent = "View";
+                    viewButton.onclick = () => showDescription(`Photo by ${image.user.name}`);
+
+                    const downloadButton = document.createElement("button");
+                    downloadButton.innerHTML = `<i class="fas fa-download"></i> Download`;
+                    downloadButton.onclick = (e) => {
+                        e.stopPropagation(); // Prevent click event from bubbling up to the img
+                        downloadImage(image.urls.full);
+                    };
+
+                    buttonContainer.appendChild(viewButton);
+                    buttonContainer.appendChild(downloadButton);
+                    container.appendChild(img);
+                    container.appendChild(descriptionOverlay);
+                    container.appendChild(buttonContainer);
+                    searchResult.appendChild(container);
+                });
+            } else {
+                searchResult.innerHTML = "<p>No images found.</p>";
+            }
+
+            pageNumber.textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById("prevButton").disabled = currentPage === 1;
+            document.getElementById("nextButton").disabled = currentPage === totalPages;
+        }
+
+        function searchPhotos() {
+            currentQuery = document.getElementById("searchInput").value || "nature";
+            currentPage = 1; // Reset to first page
+            fetchImages(currentQuery, currentPage);
+        }
+
+        function filterCategory(category) {
+            currentQuery = category; // Update the query based on selected category
+            currentPage = 1; // Reset to first page
+            fetchImages(currentQuery, currentPage);
+        }
+
+        function showDescription(description) {
+            const modal = document.getElementById("descriptionModal");
+            const descText = document.getElementById("modalDescription");
+            descText.textContent = description;
+            modal.style.display = "block";
+        }
+
+        function closeDescription() {
+            const modal = document.getElementById("descriptionModal");
+            modal.style.display = "none";
+        }
+
+        function downloadImage(url) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'downloaded-image.jpg'; // Specify a default name
+            link.click(); // Trigger download
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            fetchImages(currentQuery, currentPage);
+        }
+
+        // Initial fetch with a default category
+        fetchImages(currentQuery, currentPage);
+    </script>
+
+    <footer>
+        &copy; 2025 Image Gallery - Created with ❤️
+    </footer>
+</body>
+
+</html>

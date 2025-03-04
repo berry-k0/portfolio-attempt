@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Josefin Sans", sans-serif;
+            background-color: #1e1e1e; 
+            color: #fff;
+            box-sizing: border-box;
+        }
+        body::-webkit-scrollbar {
+            width: 10px;
+        }
+        body::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #f9004d; 
+            border-radius: 20px; 
+            border: 2px solid #ffffff; 
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);  
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        span {
+            color: #f9004d;
+        }
+
+        nav ul {
+            display: flex;
+            margin: auto;
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 10px 25px;
+            margin: 0px 0px 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        nav ul li a:hover {
+            color: #f9004d;
+            transition: 0.4s;
+        }
+         nav ul li a.active {
+            color: #f9004d;
+            
+        }
+
+        .profile-container {
+            margin: 100px 8%;
+            text-align: center;
+            background-color: #2a2a2a; 
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .profile-table {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .profile-img {
+            max-width: 150px;
+            border-radius: 20%;
+            margin-bottom: 20px;
+        }
+        .profile-table td {
+            padding: 20px;
+        }
+        .profile-table p {
+            font-size: 18px;
+        }
+        .profile-table a {
+            color: #f9004d;
+        }
+
+        .intentions-container, .skills-container, .achievements-container, .online-profiles-container {
+            margin: 50px 8%;
+            background-color: #2a2a2a;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .skills-achievements {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skills-container, .achievements-container {
+            width: 48%;
+        }
+       
+        .contact-icons i {
+            margin-right: 10px;
+            color: #f9004d;
+        }
+
+        footer {
+            background-color: #191919;
+            color: #fcfcfc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9004d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .back-to-top:hover {
+            background-color: #ff3f75;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BETTY<span>.K</span></div>
+            <ul>
+                <li><a href="home2.html">Home</a></li>
+                <li><a href="about2.html">About</a></li>
+                <li><a href="Portofolio2.html">Portfolio</a></li>
+                <li><a href="blog2.html">Blog</a></li>
+                <li><a href="resume2.html"class="active">Resume</a></li>
+                <li><a href="contacts2.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="profile-container">
+        <h1>Betelhem Kassahun</h1>
+
+        <table cellspacing="30" class="profile-table">
+            <tr>
+                <td><img src="./image/profile.jpg" alt="Photo of Betelhem Kassahun" class="profile-img"></td>
+                <td>
+                    <p class="contact-icons">
+                        <i class="fas fa-envelope"></i> Email: <a href="mailto:betelhemkassahun382@gmail.com" style="color: #f9004d;">betelhemkassahun382@gmail.com</a>
+                    </p>
+                    <p class="contact-icons">
+                        <i class="fas fa-phone"></i> Phone No: +251941480578
+                    </p>
+                    <p class="contact-icons">
+                        <i class="fas fa-map-marker-alt"></i> Location: Currently in Diredawa
+                    </p>
+                    <p><a href="betty.pdf" download="Betelhem_Kassahun_Resume.pdf">Download My Resume</a></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="intentions-container">
+        <h2>Intentions</h2>
+        <p>Dedicated ,versatile professional with experience in Taekwondo, personal trainer, content creation, graphic design, and modeling.</p><p> Seeking opportunities to leverage my skills and passion in a dynamic and growth-oriented environment.</p>
+    </div>
+
+    <div class="skills-achievements">
+        <div class="skills-container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Taekwondo (1<sup>st</sup> DAN)</li>
+                <li>Personal Training</li>
+                <li>Content Creation</li>
+                <li>Graphic Design</li>
+                <li>Web Developer</li>
+                <li>Photography</li>
+                <li>Dancing</li>
+                <li>Hosting</li>
+            </ul>
+        </div>
+
+        <div class="achievements-container">
+            <h2>Achievements</h2>
+            <ul class="achievements-list">
+                <li>1<sup>st</sup> DAN in Taekwondo</li>
+                <li>Certificate in Advanced English Language Course</li>
+                <li>High School Diploma</li>
+                <li>Successfully hosted multiple events and workshops.</li>
+                <li>Made 2 incredible and applicable projects</li>
+            </ul>
+        </div>
+    </div>
+    <div class="online-profiles-container" align="center">
+        <h3>Find Me Online</h3>
+        <p class="contact-icons">
+            <a href="https://www.linkedin.com/in/betelhemkassahun" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a><br>
+            <a href="https://www.facebook.com/BetelhemKassahun" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-facebook"></i> Facebook
+            </a><br>
+            <a href="https://www.instagram.com/__betty.k__" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-instagram"></i> Instagram
+            </a><br>
+        </p>
+    </div>
+
+    <a href="#" class="back-to-top">&#8593;</a>
+
+    <footer>
+    <p>Copyright &copy; 2024, IT. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

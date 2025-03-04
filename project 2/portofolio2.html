@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Josefin Sans", sans-serif;
+            box-sizing: border-box;
+            background-color: #121212;
+            color: white; 
+        }
+
+        body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #f9004d;
+            border-radius: 20px;
+            border: 2px solid #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5); /* Darker background */
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        span {
+            color: #f9004d;
+        }
+        nav ul {
+            display: flex;
+            margin: auto;
+            padding: 0;
+                      }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 10px 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        nav ul li a:hover {
+            color: #f9004d;
+            transition: 0.4s;
+        }
+        nav ul li a.active {
+            color: #f9004d;
+            
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('./image/mee.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 2;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        .hero h1, .hero h4 {
+            font-size: 75px;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+
+        .hero h4 {
+            font-size: 30px;
+        }
+
+        .hero h4 {
+            color: #f9004d;
+            font-size: 22px;
+        }
+
+        .content {
+            padding-top: 100px; 
+            padding-left: 15%;
+            padding-right: 15%;
+            padding-bottom: 50px;
+        }
+
+        .portfolio-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .portfolio-item .item {
+            flex-basis: 45%;
+        }
+
+        .portfolio-item .item img, .portfolio-item .item video {
+            width: 80%;
+            height: 210px;
+            border-radius: 10px;
+        }
+
+        .portfolio-item .item p {
+            font-size: 16px;
+            color: #ccc;
+            text-align: center;
+            margin-top: 10px;
+
+        }
+
+        .portfolio-item .item .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color:#f9004d;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: background-color 0.5s;
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .portfolio-item .item .btn:hover {
+            background-color:#f9004d; 
+            transform: scale(1.2);
+        }
+
+        footer.footer {
+            background-color: #191919;
+            color: #fcfcfc;
+            padding: 20px;
+            text-align: center;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9004d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+        }
+
+        .back-to-top:hover {
+            background-color: #ff3f75;
+        }
+
+        .back-to-top:focus {
+            display: block;
+        }
+
+        .show-back-to-top {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">BETTY<span>.K</span></div>
+            <ul>
+                <li><a href="home2.html">Home</a></li>
+                <li><a href="about2.html">About</a></li>
+                <li><a href="portofolio2.html"class="active">Portfolio</a></li>
+                <li><a href="blog2.html">Blog</a></li>
+                <li><a href="resume2.html">Resume</a></li>
+                <li><a href="contacts2.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+
+    <div class="content">
+        <h3 align="center">Here are some of my achievements and projects over the years:</h3>
+        
+        <div class="portfolio-item">
+            <div class="item">
+                <img src="./image/workk.png" alt="Database Project">
+                <a href="DB project.pdf" class="btn" download>My Database Project</a>
+            </div>
+            <div class="item">
+                <img src="./image/ctt.jpg" alt="Programming Project">
+                <a href="final project2.cpp" class="btn" download>My Programming Fundamentals II Project</a>
+            </div>
+            <div class="item">
+                <img src="./image/red.jpg" alt="Red Belt Certificate">
+                <p>This is my Red Belt certificate in Taekwondo, representing dedication and mastery of advanced techniques.</p>
+            </div>
+            
+            <div class="item">
+                <img src="./image/eng.jpg" alt="English Certificate">
+                <p>Certificate of Advanced English course, showcasing enhanced linguistic and communication skills.</p>
+            </div>
+            
+            <div class="item">
+                <img src="./image/eb.jpg" alt="High School Certificate">
+                <p>High School completion, symbolizing years of academic growth and perseverance.</p>
+            </div>
+            
+            <div class="item">
+                <img src="./image/screen1.JPG" alt="Graphics Design Course">
+                <p>Picture of me during my Graphics Design course, enhancing my creative skills.</p>
+            </div>
+        </div>
+
+    </div>
+    <a href="#" class="back-to-top">&#8593;</a>
+
+    <footer class="footer">
+        Copyright &copy; 2024, IT. All Rights Reserved.
+    </footer>
+</body>
+</html>

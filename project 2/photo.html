@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #6d83f3, #42b3f5);
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        #search {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        #search input {
+            padding: 15px;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #search button {
+            padding: 15px;
+            margin-left: 10px;
+            border: none;
+            background-color: #0056b3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #search button:hover {
+            background-color: #003a75;
+        }
+        #search-result {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .image-container {
+            position: relative;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .image-container:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .image-container img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        .image-overlay h3, .image-overlay p {
+            margin: 0;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .actions a, .actions button {
+            padding: 8px 12px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .actions a:hover, .actions button:hover {
+            background: #0056b3;
+        }
+        #navigation {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #navigation button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #0056b3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        #navigation button:hover {
+            background-color: #003a75;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Photography Gallery</h1>
+    <div id="search">
+        <input type="text" id="searchInput" placeholder="Search for photos...">
+        <button onclick="searchPhotos()">Search</button>
+    </div>
+
+    <div id="search-result"></div>
+
+    <div id="navigation">
+        <button onclick="changePage(-1)" id="prevButton" disabled>Previous</button>
+        <button onclick="changePage(1)" id="nextButton">Next</button>
+    </div>
+
+    <script>
+        const accessKey = "DMSqkn0N27XG-7ML8X02wB2Qu208Q5sHZEnnt0eTQPo";
+        const searchResult = document.getElementById("search-result");
+        const searchInput = document.getElementById("searchInput");
+        let page = 1;
+        let keyword = "All";
+
+        async function fetchImages(query) {
+            const url = `https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=${accessKey}&per_page=12`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (page === 1) searchResult.innerHTML = "";
+            data.results.forEach((result) => {
+                const container = document.createElement("div");
+                container.classList.add("image-container");
+
+                const img = document.createElement("img");
+                img.src = result.urls.small;
+
+                const overlay = document.createElement("div");
+                overlay.classList.add("image-overlay");
+                overlay.innerHTML = `
+                    <h3>${result.alt_description || "No Title"}</h3>
+                    <p>By: ${result.user.name}</p>
+                `;
+
+                const actions = document.createElement("div");
+                actions.classList.add("actions");
+
+                const saveBtn = document.createElement("button");
+                saveBtn.innerText = "Save";
+                saveBtn.onclick = () => saveImage(result.urls.full);
+
+                const viewBtn = document.createElement("a");
+                viewBtn.innerText = "View Full";
+                viewBtn.href = result.links.html;
+                viewBtn.target = "_blank";
+
+                actions.appendChild(saveBtn);
+                actions.appendChild(viewBtn);
+
+                container.appendChild(img);
+                container.appendChild(overlay);
+                container.appendChild(actions);
+                searchResult.appendChild(container);
+            });
+
+            document.getElementById("prevButton").disabled = page <= 1;
+        }
+
+        function saveImage(url) {
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "download";
+            link.click();
+        }
+
+        function searchPhotos() {
+            keyword = searchInput.value || "All";
+            page = 1;
+            fetchImages(keyword);
+        }
+
+        function changePage(direction) {
+            page += direction;
+            fetchImages(keyword);
+        }
+
+        fetchImages(keyword);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+    <style>
+    
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Josefin Sans", sans-serif;
+            box-sizing: border-box;
+            background-color: #121212; 
+                        color: white;
+        }
+        body::-webkit-scrollbar {
+            width: 10px;
+        }
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #f9004d;
+            border-radius: 20px;
+            border: 2px solid #ffffff;
+        }
+     
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        span {
+            color: #f9004d;
+        }
+
+        nav ul {
+            display: flex;
+            margin: auto;
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 10px 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        nav ul li a:hover {
+            color: #f9004d;
+            transition: 0.4s;
+        }
+        nav ul li a.active {
+            color: #f9004d; 
+        }
+
+        .btn {
+            background-color: #f9004d;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.2);
+        }
+
+        .about {
+            width: 100%;
+            padding: 100px 0;
+            background-color: #191919;
+        }
+
+        .about img {
+            height: auto;
+            width: 430px;
+            transition: 0.5s;
+        }
+
+        .about img:hover {
+            transform: scale(1.01);
+        }
+
+        .about-text {
+            width: 550px;
+        }
+
+        .main {
+            width: 1130px;
+            max-width: 95%;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .about-text h3 {
+            color: white;
+            font-size: 30px;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+
+        .about-text h5 {
+            color: white;
+            letter-spacing: 2px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-transform: capitalize;
+        }
+
+        .about-text p {
+            color: #fjef;
+            letter-spacing: 1px;
+            font-size: 18px;
+            line-height: 28px;
+            margin-bottom: 45px;
+        }
+
+        button {
+            background-color: #f9004d;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;
+            padding: 13px 30px;
+            border-radius: 30px;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background-color: transparent;
+            border: 2px solid #f9004d;
+            cursor: pointer;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 10%;
+            background-color: #222;
+        }
+
+        .detail {
+            width: 30%;
+            padding: 20px;
+        }
+
+        .detail h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .detail ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .detail li {
+            color: #ddd;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #191919;
+            color: #fcfcfc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9004d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+        }
+        .back-to-top:hover {
+            background-color: #ff3f75;
+        }
+        .back-to-top:focus {
+            display: block;
+        }
+        .show-back-to-top {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">BETTY<span>.K</span></div>
+        <ul>
+            
+                <li><a href="home2.html">Home</a></li>
+                <li><a href="about2.html"class="active">About</a></li>
+                <li><a href="Portofolio2.html">Portfolio</a></li>
+                <li><a href="blog2.html">Blog</a></li>
+                <li><a href="resume2.html">Resume</a></li>
+                <li><a href="contacts2.html">Contact</a></li>
+        </ul>
+      
+    </nav>
+</header>
+
+<div class="about">
+    <div class="main">
+        <div class="about-text">
+            <h3 class="intro">You are here to know more about me. How flattering! 😊</h3>
+            <h5>This is Betty's personal website.</h5>
+            <p>My Name is Betelhem Kassahun Habtemariam, but a lot of people call me by the name Betty.</p>
+            <p>I'm a 2<sup>nd</sup>-Year II Semester student at Dire Dawa University. I was born and raised in Addis Ababa, Ethiopia. I am the last-born in my family, and I love them dearly. May they have long and beautiful lives. Amen!</p>
+            <p>Life’s different aspects, such as hobbies, skills, and interests, have shaped who I am. I embody a perfect blend of creativity, physical prowess, and dedication.</p>
+
+            <button>Learn More</button>
+        </div>
+        <img src="./image/me.jpg" alt="About Betty">
+    </div>
+</section>
+
+<section class="details">
+    <div class="detail">
+        <h4>Skills</h4>
+        <ul>
+            <li>Content Creator</li>
+            <li>Graphics Designer</li>
+            <li>Photographer</li>
+            <li>Video Editor</li>
+            <li>Dancer</li>
+        </ul>
+    </div>
+
+    <div class="detail">
+        <h4>Interests</h4>
+        <ul>
+            <li>Programming</li>
+            <li>Photography</li>
+            <li>Modeling</li>
+            <li>Web Development</li>
+            <li>Becoming a Great Entrepreneur</li>
+        </ul>
+    </div>
+
+    <div class="detail">
+        <h4>Achievements</h4>
+        <ul>
+            <li>Photo Model</li>
+            <li>Taekwondo Practitioner</li>
+            <li>Host</li>
+            <li>Personal Trainer</li>
+        </ul>
+    </div>
+</div>
+<a href="#" class="back-to-top">&#8593;</a>
+
+
+<footer>
+    <p>Copyright &copy; 2024, IT. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

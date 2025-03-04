@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Josefin Sans", sans-serif;
+            box-sizing: border-box;
+            background-color: #121212; 
+            color: white; 
+        }
+
+        body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #f9004d;
+            border-radius: 20px;
+            border: 2px solid #ffffff;
+        }
+
+        
+        *, *:before, *:after {
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        span {
+            color: #f9004d;
+        }
+
+        nav ul {
+            display: flex;
+            margin: auto;
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 10px 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        nav ul li a:hover {
+            color: #f9004d;
+            transition: 0.4s;
+        }
+         nav ul li a.active {
+            color: #f9004d;
+            
+        }
+       
+        .content {
+            padding-top: 100px; 
+        }
+
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1c1c1c; 
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #444;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #33;
+            color: white; 
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between; 
+            gap: 10px; 
+        }
+        .form-buttons input {
+            flex: 1; 
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-buttons input[type="submit"] {
+            background-color: #f9004d;
+            color: white;
+        }
+        .form-buttons input[type="submit"]:hover {
+            background-color: #444;
+        }
+        .form-buttons input[type="reset"] {
+            background-color: #f9004d;
+            color: white;
+        }
+        .form-buttons input[type="reset"]:hover {
+            background-color: #444;
+        }
+        .contact-icons i {
+            margin-right: 10px;
+            color: #f9004d;
+        }
+
+footer {
+            background: #101010;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f9004d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+        }
+
+        .back-to-top:hover {
+            background-color: #ff3f75;
+        }
+
+
+        .back-to-top:focus {
+            display: block;
+        }
+
+        .show-back-to-top {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">BETTY<span>.K</span></div>
+        <ul>
+            <li><a href="home2.html">Home</a></li>
+            <li><a href="about2.html">About</a></li>
+            <li><a href="Portofolio2.html">Portfolio</a></li>
+            <li><a href="blog2.html">Blog</a></li>
+            <li><a href="resume2.html" >Resume</a></li>
+            <li><a href="contacts2.html"class="active">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="content" align="center">
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"  placeholder="Your Email"><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea><br><br>
+        <div class="form-buttons">
+            <input type="submit" value="Send Message">
+            <input type="reset" value="Cancel">
+        </div>
+    </form>
+
+    <div>
+        <h3>My Contact Information</h3>
+        <p class="contact-icons">
+            <i class="fas fa-envelope"></i> 
+            Email: <a href="mailto:betelhemkassahun382@gmail.com" style="color: #f9004d;">betelhemkassahun382@gmail.com</a>
+        </p>
+        <p class="contact-icons">
+            <i class="fas fa-phone"></i> Phone No: +251941480578
+        </p>
+        <p class="contact-icons">
+            <i class="fas fa-map-marker-alt"></i> Location: Currently in Diredawa
+        </p><br><br>
+    </div>
+
+    <div>
+        <h3>Find Me Online</h3>
+        <p class="contact-icons">
+            <a href="https://www.linkedin.com/in/betelhemkassahun" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-linkedin"></i> 
+            </a><br>
+            <a href="https://www.facebook.com/BetelhemKassahun" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-facebook"></i> 
+            </a><br>
+            <a href="https://www.instagram.com/__betty.k__" target="_blank" style="color: #f9004d;">
+                <i class="fab fa-instagram"></i> 
+            </a><br>
+        </p>
+    </div>
+</div>
+
+
+<a href="#" class="back-to-top">&#8593;</a>
+
+<footer class="footer">
+    Copyright &copy; 2024, IT. All Rights Reserved.
+</footer>
+
+</body>
+</html>
